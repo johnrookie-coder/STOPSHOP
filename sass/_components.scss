@@ -1,0 +1,128 @@
+// HEADER--NAVIGATION
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  height: 9rem;
+  &__logo {
+    display: flex;
+    flex: 1;
+    color: var(--color-primary);
+    font-size: 3.2rem;
+    font-weight: 800;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 40%;
+  }
+
+  &__item {
+    list-style: none;
+    margin-right: 1.6rem;
+
+    // :not(:last-child) {
+    //   margin-right: 1.6rem;
+    // }
+  }
+
+  &__link {
+    color: var(--body-copy);
+    font-family: inherit;
+    font-size: 2rem;
+    text-decoration: none;
+  }
+}
+
+// ABOUT-US--ICONS
+.about-us__logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-secondary);
+  border-radius: 100%;
+  margin-right: 2rem;
+  height: 8.5rem;
+  width: 8.5rem;
+
+  i {
+    color: #f2f2f2;
+    font-size: 4.5rem;
+    text-align: center;
+  }
+}
+
+// FORM
+form {
+  input {
+    display: inline-block;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    margin-right: 8px;
+    padding: 0.5rem 0.75rem;
+    height: 2.75rem;
+    min-width: 55%;
+
+    &::-webkit-input-placeholder {
+      color: var(--body-copy);
+      display: inline-block;
+      font-family: inherit;
+      font-size: 1.4rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+// BUTTONS
+.btn {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+
+  &--primary {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 6px;
+    color: #fbfbfb;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    height: 5.5rem;
+    width: 20rem;
+  }
+
+  &--sm {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0.8rem;
+    height: 4rem;
+    width: 12rem;
+  }
+}
+
+// SOCIAL MEDIA ICONS
+.social-media {
+  &__row {
+    display: flex;
+    width: 30%;
+  }
+
+  &__col {
+    // last child
+    margin-right: 2rem;
+  }
+
+  &__icon {
+    height: 4.8rem;
+    width: 4.8rem;
+  }
+}
