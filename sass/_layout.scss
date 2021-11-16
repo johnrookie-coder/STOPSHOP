@@ -45,6 +45,7 @@ header {
           color: var(--color-secondary);
         }
       }
+
       h4 {
         color: var(--body-copy);
         font-size: 1.8rem;
@@ -147,14 +148,31 @@ main {
     &__img {
       display: inline-block;
       height: 15rem;
-      width: 15rem;
+      width: 25rem;
+
+      &--sm {
+        height: 12.5rem;
+        width: 25rem;
+      }
+
+      &--md {
+        height: 13rem;
+        width: 25rem;
+      }
     }
   }
 }
 
 // FOOTER-SECTION
 .footer {
-  background-color: var(--color-secondary);
+  background-image: linear-gradient(
+    to right,
+    #495894,
+    #445289,
+    #3e4b7f,
+    #394574,
+    #343f6a
+  );
   height: auto;
   width: 100%;
 
@@ -175,7 +193,7 @@ main {
 
   &__col {
     flex-basis: 30%;
-    min-height: 20rem;
+    min-height: 22rem;
   }
 
   .copyrights {
@@ -195,20 +213,9 @@ main {
     margin: 0 3.2rem 8rem;
 
     .hero {
-      display: flex;
-      // margin: 2rem 0;
-      max-width: 100%;
-      height: 100%;
-
       &__img {
         display: none;
         flex-basis: 100%;
-      }
-
-      &__illustration {
-        object-fit: cover;
-        height: 40rem;
-        width: 100%;
       }
 
       &__content {
@@ -216,51 +223,27 @@ main {
       }
 
       &__text {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        height: 100%;
-
         h1 {
-          color: var(--body-copy);
           font-size: 4.2rem;
-          margin-bottom: 2.4rem;
-          span {
-            color: var(--color-secondary);
-          }
         }
+
         h4 {
-          color: var(--body-copy);
           font-size: 1.4rem;
-          margin-bottom: 2.8rem;
         }
       }
     }
 
     .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
       padding: 0;
-      // height: 9rem;
+      width: 100%;
 
       &__logo {
-        // display: flex;
-        // flex: 1;
-        // color: var(--color-primary);
         font-size: 2.4rem;
       }
 
-      // li
       &__item {
         display: none;
         list-style: none;
-        // margin-right: 1.6rem;
-
-        &:not(:last-child) {
-          margin-right: 1.6rem;
-        }
       }
     }
   }
@@ -270,30 +253,14 @@ main {
     margin: 0 3.2rem 8rem;
 
     .about-us {
-      display: flex;
       flex-direction: column;
-
-      &__wrapper {
-        flex-basis: 46%;
-        padding: 1rem;
-        max-height: 100%;
-        max-width: 100%;
-      }
 
       &__logo-wrapper {
         margin-right: 0;
       }
 
       &__contents {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-
         &__row {
-          display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -306,19 +273,13 @@ main {
 
       &__text {
         margin-top: 2rem;
-        flex: 1;
       }
 
       &__img {
         order: -1;
-        flex: 1;
       }
 
       &__illustration {
-        object-fit: cover;
-        height: auto;
-        width: 100%;
-
         &__collect {
           display: inline-block;
         }
@@ -328,6 +289,7 @@ main {
         }
       }
     }
+
     h2 {
       font-size: 4.5rem;
     }
@@ -335,18 +297,15 @@ main {
 
   // GET-STARTED -- MOBILE-VIEW
   .get-started-section {
-    // background-color: orange;
     margin: 0 3.2rem 8rem;
     padding: 2rem;
     height: auto;
 
     .get-started {
-      display: flex;
       flex-direction: column;
       height: auto;
 
       &__row {
-        display: flex;
         padding: 6rem 2.4rem;
         text-align: center;
         height: 40rem;
@@ -354,12 +313,6 @@ main {
         &:not(:first-child) {
           margin-top: 8rem;
         }
-      }
-
-      &__img {
-        display: inline-block;
-        height: 15rem;
-        width: 15rem;
       }
     }
 
@@ -370,14 +323,16 @@ main {
 
   // FOOTER -- MOBILE-VIEW
   .footer {
-    background-color: var(--color-secondary);
-    height: auto;
-    width: 100%;
-
     &__wrapper {
       margin: 0 3.2rem 3rem;
       padding: 2rem 0;
       height: auto;
+
+      form {
+        input {
+          width: 52%;
+        }
+      }
 
       h2 {
         font-size: 4rem;
@@ -385,26 +340,22 @@ main {
     }
 
     &__row {
-      display: flex;
       flex-direction: column;
     }
 
     &__col {
       flex-basis: 25%;
+
       &:not(:first-child) {
-        min-height: 16rem;
+        min-height: 18.5rem;
+      }
+
+      &:last-child {
+        min-height: auto;
       }
     }
 
     .copyrights {
-      background-color: #fbfbfb;
-      color: var(--body-copy);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 7.5rem;
-
       p {
         font-size: 1rem;
         width: 80%;
