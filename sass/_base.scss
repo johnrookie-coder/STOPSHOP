@@ -4,26 +4,32 @@
   --color-secondary: #495894;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-  box-sizing: border-box;
   font-size: 62.5%;
 }
 
 body {
   background-color: #f2f2f2;
+  box-sizing: border-box;
   font-family: "Sora", sans-serif;
 }
 
 //  TYPOGRAPHY
+// heading-primary?
+
 .heading__secondary {
   color: var(--color-secondary);
   font-family: inherit;
   font-size: 6rem;
+  line-height: 1.3;
   // REVISE
   &--white {
     color: #fbfbfb;
@@ -38,6 +44,7 @@ body {
   font-family: inherit;
   font-weight: 700;
   font-size: 2.4rem;
+  line-height: 1.3;
 
   &--blk {
     // revised
@@ -70,9 +77,11 @@ p {
 .mb-sm {
   margin-bottom: 1rem;
 }
+
 .mb-md {
   margin-bottom: 2.4rem;
 }
+
 .mb-xl {
   margin-bottom: 4rem;
 }
