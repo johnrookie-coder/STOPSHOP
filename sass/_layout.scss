@@ -1,4 +1,3 @@
-// ORIGINAL
 // HEADER--SECTION
 header {
   margin: 0 12rem 12rem;
@@ -206,7 +205,6 @@ header {
 
 // MEDIA QUERIES
 // MOBILE / SMALL DEVICES
-// BUG: MAIN
 @media (min-width: 300px) {
   // HEADER -- MOBILE-VIEW
   header {
@@ -304,7 +302,7 @@ header {
     }
 
     h2 {
-      font-size: 4.5rem;
+      font-size: 3.2rem;
     }
   }
 
@@ -330,7 +328,7 @@ header {
     }
 
     h2 {
-      font-size: 4.5rem;
+      font-size: 3.2rem;
     }
   }
 
@@ -368,6 +366,12 @@ header {
       &:last-child {
         min-height: auto;
       }
+
+      form {
+        input {
+          height: 3.75rem;
+        }
+      }
     }
 
     .copyrights {
@@ -384,6 +388,7 @@ header {
   // HEADER -- TABLET-VIEW
   header {
     margin: 0 4rem;
+
     .hero {
       flex-direction: column;
 
@@ -417,6 +422,12 @@ header {
         h4 {
           font-size: 1.6rem;
         }
+      }
+    }
+
+    .navbar {
+      &__logo {
+        font-size: 3.2rem;
       }
     }
   }
@@ -471,8 +482,6 @@ header {
       }
 
       &__img {
-        // revise -1 meron sa  300px
-        // order: -1;
         flex: 1;
         margin-bottom: 4rem;
       }
@@ -482,7 +491,6 @@ header {
         height: 50rem;
         width: 100%;
 
-        // revised meron sa  300px
         &__collect {
           display: inline-block;
         }
@@ -609,7 +617,7 @@ header {
 
     .navbar {
       &__logo {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
       }
 
       &__item {
@@ -716,9 +724,8 @@ header {
 }
 
 @media (min-width: 1200px) {
+  // HEADER--LARGE-DESKTOP
   header {
-    // margin: 0 10rem 0rem;
-
     .hero {
       display: flex;
       flex-direction: row;
@@ -761,10 +768,15 @@ header {
         }
       }
     }
-
     .navbar {
-      &__link {
-        font-size: 1.8rem;
+      &__logo {
+        font-size: 3.6rem;
+      }
+
+      &__item {
+        &:not(:last-child) {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -773,7 +785,7 @@ header {
     margin: 10rem 12rem;
   }
 
-  // ABOUT US--DESKTOP-VIEW
+  // ABOUT-US--LARGE-DESKTOP
   .about-us-section {
     flex-direction: column;
     // margin: 0 12rem 12rem;
@@ -822,7 +834,7 @@ header {
     }
   }
 
-  // GET-STARTED
+  // GET-STARTED--LARGE-DESKTOP
   .get-started-section {
     padding: 0;
     height: 100%;
@@ -860,6 +872,40 @@ header {
           height: 13rem;
           width: 25rem;
         }
+      }
+    }
+  }
+
+  // FOOTER--LARGE-DESKTOP
+  .footer {
+    height: auto;
+    width: 100%;
+
+    &__wrapper {
+      margin: 0 12rem 4rem 12rem;
+      height: 100%;
+    }
+
+    &__row {
+      flex-direction: row;
+
+      h3 {
+        font-size: 2.4rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__col {
+      flex-basis: 30%;
+      min-height: 22rem;
+    }
+
+    .copyrights {
+      p {
+        font-size: 1.8rem;
       }
     }
   }

@@ -96,6 +96,7 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 1.6rem;
   padding: 1.5rem;
   height: 9rem;
 }
@@ -108,7 +109,7 @@ p {
       -ms-flex: 1;
           flex: 1;
   color: var(--color-primary);
-  font-size: 3.2rem;
+  font-size: 4.5rem;
   font-weight: 800;
 }
 
@@ -124,22 +125,52 @@ p {
           align-items: center;
   -ms-flex-preferred-size: 40%;
       flex-basis: 40%;
+  height: 3rem;
 }
 
 .navbar__item {
+  position: relative;
   display: inline-block;
   list-style: none;
+  text-align: center;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar__item:not(:last-child) {
   margin-right: 1.6rem;
 }
 
+.navbar__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffc069;
+  height: 100%;
+  width: 2px;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: width 0.4s cubic-bezier(0.96, 0.01, 0.14, 1.01) 0.2s, -webkit-transform 0.2s;
+  transition: width 0.4s cubic-bezier(0.96, 0.01, 0.14, 1.01) 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, width 0.4s cubic-bezier(0.96, 0.01, 0.14, 1.01) 0.2s;
+  transition: transform 0.2s, width 0.4s cubic-bezier(0.96, 0.01, 0.14, 1.01) 0.2s, -webkit-transform 0.2s;
+}
+
+.navbar__item:hover::before {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  width: 100%;
+}
+
 .navbar__link {
   color: var(--body-copy);
   font-family: inherit;
   font-size: 1.8rem;
+  line-height: 2;
   text-decoration: none;
+  position: relative;
+  z-index: 10;
 }
 
 .about-us__logo-wrapper {
@@ -212,6 +243,11 @@ form input:focus {
   padding: 1rem 2rem;
   height: 5.5rem;
   width: 20rem;
+}
+
+.btn--primary:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(#a33024), color-stop(#962c21), color-stop(#8a281f), color-stop(#7e251c), to(#722119));
+  background-image: linear-gradient(to right, #a33024, #962c21, #8a281f, #7e251c, #722119);
 }
 
 .btn--primary.n-shadow {
@@ -584,7 +620,7 @@ header .hero__text h4 {
     display: none;
   }
   .about-us-section h2 {
-    font-size: 4.5rem;
+    font-size: 3.2rem;
   }
   .get-started-section {
     margin: 0;
@@ -607,7 +643,7 @@ header .hero__text h4 {
     margin-top: 8rem;
   }
   .get-started-section h2 {
-    font-size: 4.5rem;
+    font-size: 3.2rem;
   }
   .footer__wrapper {
     margin: 0 3.2rem 3rem;
@@ -638,6 +674,9 @@ header .hero__text h4 {
   }
   .footer__col:last-child {
     min-height: auto;
+  }
+  .footer__col form input {
+    height: 3.75rem;
   }
   .footer .copyrights p {
     font-size: 1rem;
@@ -677,6 +716,9 @@ header .hero__text h4 {
   }
   header .hero__text h4 {
     font-size: 1.6rem;
+  }
+  header .navbar__logo {
+    font-size: 3.2rem;
   }
   main {
     margin: 8rem 4rem;
@@ -850,7 +892,7 @@ header .hero__text h4 {
     margin-bottom: 2.8rem;
   }
   header .navbar__logo {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
   header .navbar__item {
     display: inline-block;
@@ -967,8 +1009,11 @@ header .hero__text h4 {
     line-height: 1.7;
     margin-bottom: 2.8rem;
   }
-  header .navbar__link {
-    font-size: 1.8rem;
+  header .navbar__logo {
+    font-size: 3.6rem;
+  }
+  header .navbar__item:not(:last-child) {
+    margin-right: 0;
   }
   main {
     margin: 10rem 12rem;
@@ -1076,6 +1121,34 @@ header .hero__text h4 {
   .get-started-section .get-started__img--md {
     height: 13rem;
     width: 25rem;
+  }
+  .footer {
+    height: auto;
+    width: 100%;
+  }
+  .footer__wrapper {
+    margin: 0 12rem 4rem 12rem;
+    height: 100%;
+  }
+  .footer__row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .footer__row h3 {
+    font-size: 2.4rem;
+  }
+  .footer__row p {
+    font-size: 1.6rem;
+  }
+  .footer__col {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+    min-height: 22rem;
+  }
+  .footer .copyrights p {
+    font-size: 1.8rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

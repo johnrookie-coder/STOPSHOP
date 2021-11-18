@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 1.6rem;
   padding: 1.5rem;
   height: 9rem;
 
@@ -10,7 +11,7 @@
     display: flex;
     flex: 1;
     color: var(--color-primary);
-    font-size: 3.2rem;
+    font-size: 4.5rem;
     font-weight: 800;
   }
 
@@ -19,14 +20,40 @@
     justify-content: space-between;
     align-items: center;
     flex-basis: 40%;
+    height: 3rem;
+    // height: 3rem;
   }
 
   &__item {
+    position: relative;
     display: inline-block;
     list-style: none;
+    text-align: center;
+    height: 100%;
+    width: 100%;
 
     &:not(:last-child) {
       margin-right: 1.6rem;
+    }
+
+    // udemy - 72
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #ffc069;
+      height: 100%;
+      width: 2px;
+      transform: scaleY(0);
+      // transform transition 2s, width .4s 2.s delay
+      transition: transform 0.2s,
+        width 0.4s cubic-bezier(0.96, 0.01, 0.14, 1.01) 0.2s;
+    }
+
+    &:hover::before {
+      transform: scaleY(1);
+      width: 100%;
     }
   }
 
@@ -34,7 +61,10 @@
     color: var(--body-copy);
     font-family: inherit;
     font-size: 1.8rem;
+    line-height: 2;
     text-decoration: none;
+    position: relative;
+    z-index: 10;
   }
 }
 
@@ -90,6 +120,8 @@ form {
   font-family: inherit;
   font-weight: 400;
   cursor: pointer;
+  // transform: scaleY(2);
+  // transition: all 1s;
 
   &--primary {
     background-image: linear-gradient(
@@ -101,6 +133,18 @@ form {
       #cc3d2e
     );
     box-shadow: 0 0.8rem 1.6rem rgba(209, 80, 66, 0.4);
+
+    &:hover {
+      background-image: linear-gradient(
+        to right,
+        #a33024,
+        #962c21,
+        #8a281f,
+        #7e251c,
+        #722119
+      );
+    }
+
     border: none;
     border-radius: 6px;
     color: #fbfbfb;
@@ -132,7 +176,6 @@ form {
   }
 
   &__col {
-    // last child
     margin-right: 2rem;
   }
 
@@ -141,3 +184,9 @@ form {
     width: 4.8rem;
   }
 }
+
+// @keyframes bigger {
+//   0% {
+//     transform: scalex(2)
+//   }
+// }
