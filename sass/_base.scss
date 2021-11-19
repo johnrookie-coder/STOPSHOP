@@ -89,3 +89,48 @@ p {
 .mt-md {
   margin-top: 2rem;
 }
+
+// Animations
+.hvr-radial-out {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  background: #fbfbfb;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
+.hvr-radial-out:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: linear-gradient(
+    to right bottom,
+    #665ea0,
+    #5f5d9d,
+    #575b9a,
+    #505a97,
+    #495894
+  );
+  border-radius: 100%;
+  color: #fbfbfb;
+  transform: scale(0);
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.hvr-radial-out:hover,
+.hvr-radial-out:focus,
+.hvr-radial-out:active {
+  color: #fbfbfb;
+}
+.hvr-radial-out:hover:before,
+.hvr-radial-out:focus:before,
+.hvr-radial-out:active:before {
+  transform: scale(2);
+}

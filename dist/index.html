@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/phosphor-icons"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="css/main.css" />
   </head>
 
@@ -62,7 +62,12 @@
     </header>
 
     <main>
-      <section class="about-us-section" id="about">
+      <section
+        class="about-us-section"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        id="about"
+      >
         <h2 class="heading__secondary">About Us</h2>
         <div class="about-us">
           <div class="about-us__wrapper">
@@ -125,10 +130,15 @@
         </div>
       </section>
 
-      <section class="get-started-section" id="services">
+      <section
+        class="get-started-section"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        id="services"
+      >
         <h2 class="heading__secondary mb-xl">Guide for first-time shoppers</h2>
         <div class="get-started">
-          <figure class="get-started__row">
+          <figure class="get-started__row hvr-radial-out">
             <img
               src="img/SVG/products.svg"
               alt="offered products"
@@ -142,7 +152,7 @@
               </p>
             </figcaption>
           </figure>
-          <figure class="get-started__row">
+          <figure class="get-started__row hvr-radial-out">
             <img
               src="img/SVG/delivery.svg"
               alt="offered products"
@@ -156,7 +166,7 @@
               </p>
             </figcaption>
           </figure>
-          <figure class="get-started__row">
+          <figure class="get-started__row hvr-radial-out">
             <img
               src="img/SVG/payment.svg"
               alt="offered products"
@@ -252,5 +262,11 @@
         </p>
       </div>
     </footer>
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
