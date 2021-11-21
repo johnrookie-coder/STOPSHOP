@@ -1229,14 +1229,8 @@ header .hero__text h4 {
   }
 }
 
-.navbar--delivery {
-  padding: 1.5rem 0rem;
-  margin: 2.4rem 12rem;
-  width: 90%;
-}
-
-.navbar--delivery__item {
-  font-size: 4rem;
+.delivery__main {
+  margin: 0 10rem 10rem;
 }
 
 .section__delivery__wrapper {
@@ -1279,5 +1273,67 @@ header .hero__text h4 {
   font-size: 1.6rem;
   line-height: 1.8;
   list-style: disc;
+}
+
+@media (min-width: 300px) {
+  .delivery__main {
+    margin: 0 3rem 3rem;
+  }
+  .section__delivery__wrapper {
+    width: 100%;
+  }
+  .section__delivery__contents h3 {
+    font-size: 2.4rem;
+  }
+  .section__delivery__contents p {
+    font-size: 1.6rem;
+  }
+  .section__delivery .primary__list__bullets {
+    margin: 1rem 0 1rem 2rem;
+  }
+  .section__delivery .heading__primary {
+    font-size: 2.8rem;
+  }
+  .navbar--delivery {
+    margin: 3rem 0;
+    padding: 0 3rem;
+    width: 100%;
+  }
+  .navbar__logo {
+    font-size: 3.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .delivery__main {
+    margin: 0 4rem 4rem;
+  }
+  .navbar {
+    width: 100%;
+  }
+  .navbar--delivery {
+    margin: 4rem 0;
+    padding: 0 4rem;
+    height: auto;
+    width: 100%;
+  }
+  .navbar__logo {
+    font-size: 3.6rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .delivery__main {
+    margin: 0 10rem 10rem;
+  }
+  .navbar {
+    width: 100%;
+  }
+  .navbar--delivery {
+    margin: 5rem 0;
+    padding: 0 10rem;
+    height: auto;
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=main.css.map */
