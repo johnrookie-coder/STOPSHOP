@@ -1,0 +1,23 @@
+:root {
+  --body-copy: #414040;
+  --color-primary: #cc3d2e;
+  --color-secondary: #495894;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  font-family: "Sora", sans-serif;
+}

@@ -1,0 +1,43 @@
+// MEDIA QUERIES
+@media (min-width: 300px) {
+  main {
+    margin: 8rem 3.2rem;
+  }
+
+  .delivery__main {
+    margin: 0 3rem 3rem;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: 8rem 4rem;
+  }
+
+  .delivery__main {
+    margin: 0 4rem 4rem;
+
+    h1 {
+      font-size: 3.6rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    margin: 10rem;
+  }
+  .delivery__main {
+    margin: 0 10rem 10rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    margin: 10rem 12rem;
+  }
+}

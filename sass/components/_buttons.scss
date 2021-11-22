@@ -1,0 +1,53 @@
+// BUTTONS
+.btn {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+  // transform: scaleY(2);
+  // transition: all 1s;
+
+  &--primary {
+    background-image: linear-gradient(
+      to right,
+      #d15042,
+      #d04b3d,
+      #cf4738,
+      #cd4233,
+      #cc3d2e
+    );
+    box-shadow: 0 0.8rem 1.6rem rgba(209, 80, 66, 0.4);
+
+    &:hover {
+      background-image: linear-gradient(
+        to right,
+        #a33024,
+        #962c21,
+        #8a281f,
+        #7e251c,
+        #722119
+      );
+    }
+
+    border: none;
+    border-radius: 6px;
+    color: #fbfbfb;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    height: 5.5rem;
+    width: 20rem;
+
+    &.n-shadow {
+      box-shadow: none;
+    }
+  }
+
+  &--sm {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0.8rem;
+    height: 4rem;
+    width: 12rem;
+  }
+}
