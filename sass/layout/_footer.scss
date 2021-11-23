@@ -60,6 +60,7 @@
     &__col {
       align-self: flex-start;
       flex-basis: 25%;
+      user-select: none;
 
       &:not(:first-child) {
         min-height: 18.5rem;
@@ -69,7 +70,6 @@
         min-height: auto;
       }
 
-      // saan?
       form {
         input {
           height: 3.75rem;
@@ -79,6 +79,7 @@
     .copyrights {
       p {
         font-size: 1rem;
+        user-select: none;
         width: 80%;
       }
     }
