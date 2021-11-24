@@ -169,9 +169,10 @@ span {
   width: 20rem;
 }
 
-.btn--primary:hover {
+.btn--primary:hover, .btn--primary:focus, .btn--primary:active {
   background-image: -webkit-gradient(linear, left top, right top, from(#a33024), color-stop(#962c21), color-stop(#8a281f), color-stop(#7e251c), to(#722119));
   background-image: linear-gradient(to right, #a33024, #962c21, #8a281f, #7e251c, #722119);
+  outline: none;
 }
 
 .btn--primary.n-shadow {
@@ -364,12 +365,12 @@ form input:focus {
     display: none;
     list-style: none;
   }
-  .navbar--delivery {
+  .navbar--delivery, .navbar--payment {
     margin: 3rem 0;
     padding: 0 3rem;
     width: 100%;
   }
-  .navbar--delivery__logo {
+  .navbar--delivery__logo, .navbar--payment__logo {
     color: var(--color-primary);
     font-size: 3.2rem;
     font-weight: 800;
@@ -383,13 +384,13 @@ form input:focus {
   .navbar__logo {
     font-size: 3.2rem;
   }
-  .navbar--delivery {
+  .navbar--delivery, .navbar--payment {
     margin: 4rem 0;
     padding: 0 4rem;
     height: auto;
     width: 100%;
   }
-  .navbar--delivery__logo {
+  .navbar--delivery__logo, .navbar--payment__logo {
     font-size: 3.6rem;
   }
 }
@@ -410,7 +411,7 @@ form input:focus {
     font-size: 1.6rem;
     font-weight: 400;
   }
-  .navbar--delivery {
+  .navbar--delivery, .navbar--payment {
     margin: 5rem 0;
     padding: 0 10rem;
     height: auto;
@@ -1367,14 +1368,65 @@ header .hero__text h4 {
   list-style: disc;
 }
 
+.section__payment {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.section__payment__wrapper {
+  width: 90%;
+}
+
+.section__payment__contents:not(:last-child) {
+  margin-bottom: 4.8rem;
+}
+
+.section__payment__contents h3 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.section__payment__contents p {
+  font-size: 1.8rem;
+}
+
+.section__payment .primary__list {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin: 1.6rem 0;
+}
+
+.section__payment .primary__list__note {
+  color: var(--body-copy);
+  font-size: 2rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+.section__payment .primary__list__bullets {
+  font-weight: 400;
+  margin: 1.6rem 0 1.6rem 4rem;
+}
+
+.section__payment .primary__list__item {
+  color: var(--body-copy);
+  font-size: 1.6rem;
+  line-height: 1.8;
+  list-style: disc;
+}
+
 @media (min-width: 300px) {
   main {
     margin: 8rem 3.2rem;
   }
-  .delivery__main {
+  .delivery__main,
+  .payment__main {
     margin: 0 3rem 3rem;
   }
-  .delivery__main h1 {
+  .delivery__main h1,
+  .payment__main h1 {
     font-size: 3rem;
   }
 }
@@ -1383,10 +1435,12 @@ header .hero__text h4 {
   main {
     margin: 8rem 4rem;
   }
-  .delivery__main {
+  .delivery__main,
+  .payment__main {
     margin: 0 4rem 4rem;
   }
-  .delivery__main h1 {
+  .delivery__main h1,
+  .payment__main h1 {
     font-size: 3.6rem;
   }
 }
@@ -1395,7 +1449,8 @@ header .hero__text h4 {
   main {
     margin: 10rem;
   }
-  .delivery__main {
+  .delivery__main,
+  .payment__main {
     margin: 0 10rem 10rem;
   }
 }

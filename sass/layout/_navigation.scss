@@ -78,7 +78,8 @@
       list-style: none;
     }
 
-    &--delivery {
+    &--delivery,
+    &--payment {
       margin: 3rem 0;
       padding: 0 3rem;
       width: 100%;
@@ -97,7 +98,8 @@
       font-size: 3.2rem;
     }
 
-    &--delivery {
+    &--delivery,
+    &--payment {
       margin: 4rem 0;
       padding: 0 4rem;
       height: auto;
@@ -129,7 +131,8 @@
       font-weight: 400;
     }
 
-    &--delivery {
+    &--delivery,
+    &--payment {
       margin: 5rem 0;
       padding: 0 10rem;
       height: auto;
