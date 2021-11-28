@@ -2,7 +2,6 @@
   // border: 1px solid red;
   margin: 0 auto;
   height: auto;
-  width: 95%;
 }
 
 .product {
@@ -14,12 +13,6 @@
   &__img {
     flex-basis: 50%;
     text-align: center;
-  }
-
-  img {
-    object-fit: cover;
-    height: 46.5rem;
-    width: 35rem;
   }
 
   // CONTENTS |2
@@ -45,6 +38,7 @@
   form {
     // border: 4px solid orange;
     display: flex;
+    flex: 1;
     width: 100%;
   }
 
@@ -52,6 +46,20 @@
   &__price {
     font-size: 3.2rem;
     font-weight: 700;
+  }
+
+  .input__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+  }
+
+  label {
+    color: var(--body-copy);
+    font-family: "Sora", sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
   }
 
   // INPUT: NUMBER
@@ -63,7 +71,7 @@
     font-weight: 700;
     text-align: center;
     height: 4.5rem;
-    width: 30%;
+    width: 100%;
 
     -moz-appearance: textfield;
 
@@ -71,6 +79,72 @@
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
+    }
+  }
+}
+
+// Todo: Initial Media Queries for productSection
+// Todo: Font-size for each viewport
+@media (min-width: 300px) {
+  .product {
+    flex-direction: column;
+
+    &__img {
+      margin-bottom: 1.6rem;
+      height: 100%;
+      width: 100%;
+
+      img {
+        height: inherit;
+        width: inherit;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .product {
+    flex-direction: column;
+
+    &__img {
+      margin-bottom: 4rem;
+
+      img {
+        // height: 46.5rem;
+        // width: 35rem;
+        object-fit: center;
+        height: 55rem;
+        width: 80%;
+      }
+    }
+
+    &__details {
+      .contents {
+        margin: 0 4rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .product {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__img {
+      margin-bottom: 0;
+
+      img {
+        height: 46.5rem;
+        width: 35rem;
+      }
+    }
+
+    &__details {
+      margin-left: 3rem;
+      .contents {
+        margin: 0;
+      }
     }
   }
 }

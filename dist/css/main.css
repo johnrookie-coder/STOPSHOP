@@ -185,8 +185,7 @@ span {
 }
 
 .btn--secondary {
-  background-image: -webkit-gradient(linear, left top, right top, from(#495894), color-stop(#445289), color-stop(#3e4b7f), color-stop(#394574), to(#343f6a));
-  background-image: linear-gradient(to right, #495894, #445289, #3e4b7f, #394574, #343f6a);
+  background-color: #4b4065;
   border: none;
   border-radius: 6px;
   color: #fbfbfb;
@@ -198,34 +197,13 @@ span {
 }
 
 .btn--secondary:hover, .btn--secondary:focus, .btn--secondary:active {
-  background-image: -webkit-gradient(linear, left top, right top, from(#495894), color-stop(#445289), color-stop(#3e4b7f), color-stop(#394574), to(#343f6a));
-  background-image: linear-gradient(to right, #495894, #445289, #3e4b7f, #394574, #343f6a);
+  background-color: #4b4065;
   outline: none;
 }
 
 .btn--secondary.n-shadow {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-.btn--centered {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.btn--centered i {
-  font-size: 2rem;
 }
 
 .btn--sm {
@@ -238,11 +216,32 @@ span {
 
 .btn--md {
   border-radius: 4px;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   text-align: center;
   padding: 0.8rem;
   height: 4.55rem;
   width: 18rem;
+}
+
+.btn--prod {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5rem;
+  margin: 3rem 0 0 3rem;
+}
+
+.btn i {
+  display: inline-block;
+  font-size: 2rem;
+  line-height: 2;
+  text-align: center;
 }
 
 form {
@@ -1379,7 +1378,6 @@ header .hero__text h4 {
 .section__product {
   margin: 0 auto;
   height: auto;
-  width: 95%;
 }
 
 .product {
@@ -1396,13 +1394,6 @@ header .hero__text h4 {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   text-align: center;
-}
-
-.product img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 46.5rem;
-  width: 35rem;
 }
 
 .product__details {
@@ -1432,12 +1423,35 @@ header .hero__text h4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   width: 100%;
 }
 
 .product__price {
   font-size: 3.2rem;
   font-weight: 700;
+}
+
+.product .input__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+.product label {
+  color: var(--body-copy);
+  font-family: "Sora", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
 }
 
 .product__input {
@@ -1448,13 +1462,77 @@ header .hero__text h4 {
   font-weight: 700;
   text-align: center;
   height: 4.5rem;
-  width: 30%;
+  width: 100%;
   -moz-appearance: textfield;
 }
 
 .product__input::-webkit-outer-spin-button, .product__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media (min-width: 300px) {
+  .product {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .product__img {
+    margin-bottom: 1.6rem;
+    height: 100%;
+    width: 100%;
+  }
+  .product__img img {
+    height: inherit;
+    width: inherit;
+  }
+}
+
+@media (min-width: 768px) {
+  .product {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .product__img {
+    margin-bottom: 4rem;
+  }
+  .product__img img {
+    -o-object-fit: center;
+       object-fit: center;
+    height: 55rem;
+    width: 80%;
+  }
+  .product__details .contents {
+    margin: 0 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .product {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .product__img {
+    margin-bottom: 0;
+  }
+  .product__img img {
+    height: 46.5rem;
+    width: 35rem;
+  }
+  .product__details {
+    margin-left: 3rem;
+  }
+  .product__details .contents {
+    margin: 0;
+  }
 }
 
 .section__delivery {

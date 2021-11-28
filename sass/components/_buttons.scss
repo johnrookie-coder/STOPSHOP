@@ -45,26 +45,12 @@
   }
 
   &--secondary {
-    background-image: linear-gradient(
-      to right,
-      #495894,
-      #445289,
-      #3e4b7f,
-      #394574,
-      #343f6a
-    );
+    background-color: #4b4065;
 
     &:hover,
     &:focus,
     &:active {
-      background-image: linear-gradient(
-        to right,
-        #495894,
-        #445289,
-        #3e4b7f,
-        #394574,
-        #343f6a
-      );
+      background-color: #4b4065;
       outline: none;
     }
 
@@ -82,17 +68,6 @@
     }
   }
 
-  &--centered {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    i {
-      font-size: 2rem;
-    }
-  }
-
   &--sm {
     font-size: 1.4rem;
     text-align: center;
@@ -103,10 +78,25 @@
 
   &--md {
     border-radius: 4px;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-align: center;
     padding: 0.8rem;
     height: 4.55rem;
     width: 18rem;
+  }
+
+  &--prod {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    margin: 3rem 0 0 3rem;
+  }
+
+  i {
+    display: inline-block;
+    font-size: 2rem;
+    line-height: 2;
+    text-align: center;
   }
 }
