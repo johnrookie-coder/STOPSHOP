@@ -238,6 +238,7 @@ span {
 }
 
 .btn i {
+  margin: auto 0.5rem auto 0;
   display: inline-block;
   font-size: 2rem;
   line-height: 2;
@@ -1396,6 +1397,40 @@ header .hero__text h4 {
   text-align: center;
 }
 
+@media (min-width: 300px) {
+  .product__img {
+    margin-bottom: 1.6rem;
+    height: 100%;
+    width: 100%;
+  }
+  .product__img img {
+    height: inherit;
+    width: inherit;
+  }
+}
+
+@media (min-width: 768px) {
+  .product__img {
+    margin-bottom: 4rem;
+  }
+  .product__img img {
+    -o-object-fit: center;
+       object-fit: center;
+    height: 55rem;
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .product__img {
+    margin-bottom: 0;
+  }
+  .product__img img {
+    height: 46.5rem;
+    width: 35rem;
+  }
+}
+
 .product__details {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1410,13 +1445,39 @@ header .hero__text h4 {
       flex-basis: 75%;
 }
 
-.product__details h3 {
-  font-size: 3.6rem;
+@media (min-width: 300px) {
+  .product__details h3 {
+    font-size: 3.2rem;
+  }
+  .product__details .contents__text {
+    font-size: 1.6rem;
+  }
 }
 
-.product .contents__text {
-  font-size: 1.8rem;
-  line-height: 1.8;
+@media (min-width: 768px) {
+  .product__details .contents {
+    margin: 0 7rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .product__details {
+    margin-left: 3rem;
+  }
+  .product__details {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+  .product__details .contents {
+    margin: 0;
+  }
+  .product__details .contents__text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+  }
+  .product__details h3 {
+    font-size: 3.6rem;
+  }
 }
 
 .product form {
@@ -1427,11 +1488,6 @@ header .hero__text h4 {
       -ms-flex: 1;
           flex: 1;
   width: 100%;
-}
-
-.product__price {
-  font-size: 3.2rem;
-  font-weight: 700;
 }
 
 .product .input__wrapper {
@@ -1449,9 +1505,20 @@ header .hero__text h4 {
 .product label {
   color: var(--body-copy);
   font-family: "Sora", sans-serif;
-  font-size: 2rem;
   font-weight: 300;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 300px) {
+  .product label {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .product label label {
+    font-size: 1.8rem;
+  }
 }
 
 .product__input {
@@ -1478,24 +1545,13 @@ header .hero__text h4 {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .product__img {
-    margin-bottom: 1.6rem;
-    height: 100%;
-    width: 100%;
-  }
-  .product__img img {
-    height: inherit;
-    width: inherit;
+  .product__price {
+    font-size: 2.6rem;
+    font-weight: 700;
   }
 }
 
 @media (min-width: 768px) {
-  .product {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
   .product__img {
     margin-bottom: 4rem;
   }
@@ -1504,9 +1560,6 @@ header .hero__text h4 {
        object-fit: center;
     height: 55rem;
     width: 80%;
-  }
-  .product__details .contents {
-    margin: 0 4rem;
   }
 }
 
@@ -1520,18 +1573,30 @@ header .hero__text h4 {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  .product__price {
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
   .product__img {
-    margin-bottom: 0;
+    margin-bottom: 4rem;
   }
   .product__img img {
-    height: 46.5rem;
-    width: 35rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
-  .product__details {
-    margin-left: 3rem;
+}
+
+@media (min-width: 1200px) {
+  .product__img {
+    margin-bottom: 4rem;
   }
-  .product__details .contents {
-    margin: 0;
+  .product__img img {
+    -o-object-fit: center;
+       object-fit: center;
+    height: 55rem;
+    width: 80%;
   }
 }
 
@@ -1638,11 +1703,13 @@ header .hero__text h4 {
     margin: 8rem 3.2rem;
   }
   .delivery__main,
-  .payment__main {
+  .payment__main,
+  .product__main {
     margin: 0 3rem 3rem;
   }
   .delivery__main h1,
-  .payment__main h1 {
+  .payment__main h1,
+  .product__main h1 {
     font-size: 3rem;
   }
 }
@@ -1652,11 +1719,13 @@ header .hero__text h4 {
     margin: 8rem 4rem;
   }
   .delivery__main,
-  .payment__main {
+  .payment__main,
+  .product__main {
     margin: 0 4rem 4rem;
   }
   .delivery__main h1,
-  .payment__main h1 {
+  .payment__main h1,
+  .product__main h1 {
     font-size: 3.6rem;
   }
 }
@@ -1666,7 +1735,8 @@ header .hero__text h4 {
     margin: 10rem;
   }
   .delivery__main,
-  .payment__main {
+  .payment__main,
+  .product__main {
     margin: 0 10rem 10rem;
   }
 }
