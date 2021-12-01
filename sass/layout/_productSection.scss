@@ -214,3 +214,111 @@
     }
   }
 }
+
+// Todo: Newly added line of codes, initial layout
+// NEW
+.navbar--cart {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+// CART ITEM
+.cart {
+  position: relative;
+  // border: 1px solid #000;
+  height: 5rem;
+  width: 5rem;
+
+  &__notif {
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    background-color: var(--color-primary);
+    border-radius: 100%;
+    color: #f2f2f2;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0.5rem 0.3rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  // NEW
+  &__details {
+    position: absolute;
+    top: 10rem;
+    right: 11rem;
+    font-size: 1.8rem;
+    background-color: #fbfbfb;
+    border: 1px solid rgba(64, 64, 64, 0.25);
+    border-radius: 4px;
+    padding: 4rem;
+    height: auto;
+    width: 50rem;
+
+    &__prod {
+      display: flex;
+      flex: 1;
+    }
+
+    &__img {
+      flex-basis: 30%;
+      img {
+        border-radius: 50%;
+        object-fit: cover;
+        height: 10rem;
+        width: 10rem;
+      }
+    }
+
+    &__contents {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .col-1 {
+        p {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    &__input {
+      border: 1px solid rgba(64, 64, 64, 0.3);
+      display: inline-block;
+      color: var(--color-primary);
+      font-size: 1.7rem;
+      font-weight: 700;
+      text-align: center;
+      height: 3.2rem;
+      width: 10rem;
+
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+// Bug: NEW
+// BTN-NEW
+.btn--xs {
+  background-color: rgba(112, 112, 112, 0.3);
+  border-radius: 4px;
+  border: none;
+  color: #111;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  height: 3.2rem;
+}

@@ -132,11 +132,25 @@
     }
 
     &--delivery,
-    &--payment {
+    &--payment,
+    &--product {
       margin: 5rem 0;
       padding: 0 10rem;
       height: auto;
       width: 100%;
+    }
+
+    &--product {
+      // new
+      padding: 0 10rem 0 15rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      i {
+        font-size: 4rem;
+      }
     }
   }
 
