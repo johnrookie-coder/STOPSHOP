@@ -16,9 +16,18 @@
     );
     box-shadow: 0 0.8rem 1.6rem rgba(209, 80, 66, 0.4);
 
-    &:hover,
-    &:focus,
     &:active {
+      background-image: linear-gradient(
+        to right,
+        #d15042,
+        #d04b3d,
+        #cf4738,
+        #cd4233,
+        #cc3d2e
+      );
+    }
+    &:hover,
+    &:focus {
       background-image: linear-gradient(
         to right,
         #a33024,

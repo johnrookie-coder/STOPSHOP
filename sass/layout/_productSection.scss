@@ -246,6 +246,7 @@
 
   // NEW
   &__details {
+    display: none;
     position: absolute;
     top: 10rem;
     right: 11rem;
@@ -257,8 +258,13 @@
     height: auto;
     width: 50rem;
 
+    &.show {
+      display: block;
+    }
+
     &__prod {
       display: flex;
+      flex-wrap: wrap;
       flex: 1;
     }
 
@@ -308,10 +314,39 @@
         outline: none;
       }
     }
+
+    &__wrapper {
+      // Initial shows no item on cart
+      &--0 {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+
+        &.hidden {
+          display: none;
+        }
+      }
+
+      // Once there are items on the cart, this code will run
+      &--1 {
+        display: none;
+
+        &.show {
+          display: block;
+        }
+      }
+    }
+
+    &__layout {
+      margin-top: 5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+    }
   }
 }
 
-// Bug: NEW
 // BTN-NEW
 .btn--xs {
   background-color: rgba(112, 112, 112, 0.3);
@@ -321,4 +356,8 @@
   padding: 0.5rem 2rem;
   text-align: center;
   height: 3.2rem;
+}
+
+.h4 {
+  font-size: 2.4rem;
 }
