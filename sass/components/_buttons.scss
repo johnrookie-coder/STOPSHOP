@@ -77,6 +77,16 @@
     }
   }
 
+  &--xs {
+    background-color: rgba(112, 112, 112, 0.3);
+    border-radius: 4px;
+    border: none;
+    color: #111;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    height: 3.2rem;
+  }
+
   &--sm {
     font-size: 1.4rem;
     text-align: center;

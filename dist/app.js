@@ -3,6 +3,32 @@
 const cards = document.querySelectorAll(".get-started__row");
 const addToCart = document.querySelectorAll(".btn--prod");
 
+// The set currency is "PHP"
+const formattedPHP = function (num) {
+  const number = +num;
+  const opt = {
+    style: "currency",
+    currency: "PHP",
+  };
+
+  const formattedMoney = new Intl.NumberFormat(opt).format(number);
+
+  return formattedMoney;
+};
+
+// Masked strings/ product name longer than 25
+const maskedStr = function (str) {
+  const strLength = str.length;
+  let receivedStr;
+
+  strLength <= 30
+    ? (receivedStr = str)
+    : (receivedStr = str.slice(0, 25).padEnd(30, "."));
+
+  return receivedStr;
+};
+
+//  ***************************** Cards click event ***********************
 // Cards open new HTML page
 cards.forEach((card, i) => {
   card.addEventListener("click", (e) => {
@@ -67,8 +93,6 @@ cards.forEach((card, i) => {
         const cartContainer = document.querySelector(".cart__details");
         const cartItem = document.createElement("div");
 
-        // const cartTotal = document.querySelector(".cart__details__total");
-
         cartItem.classList.add("cart__details__prod", "mb-xl");
 
         cartItem.innerHTML = `
@@ -77,7 +101,7 @@ cards.forEach((card, i) => {
           </div>
           <div class="cart__details__contents">
             <div class="col-1">
-              <p>${item.name}</p>
+              <p>${maskedStr(item.name)}</p>
               <p>
                 <strong class="cart__details__price">${item.price.toFixed(
                   2
@@ -88,13 +112,32 @@ cards.forEach((card, i) => {
               <input type="number" class="cart__details__input" value="${
                 item.quantity
               }" />
-              <button class="btn btn--xs">Remove</button>
+              <button class="btn btn--xs btn__remove">Remove</button>
             </div>
           </div>
         `;
 
+        // Let the user know that the items are already added to the cart
+        window.alert("Items added to the cart");
+
         cartContainer.prepend(cartItem);
         showTotals();
+
+        //  ***************************** Remove functionality ***********************
+
+        const removeBtns = document.querySelectorAll(".btn__remove");
+        for (let i = 0; i < removeBtns.length; i++) {
+          const btn = removeBtns[i];
+
+          btn.addEventListener("click", (e) => {
+            // target where the click event happens and removes it.
+            const btnClicked = e.target;
+            btnClicked.parentElement.parentElement.parentElement.remove();
+
+            // Updates the total price
+            showTotals();
+          });
+        }
       }
     });
   });
@@ -129,10 +172,11 @@ function showTotals() {
   }, 0);
 
   // Formatted total amount
-  const finalAmount = totalAmount.toFixed(2);
+  const formattedCurrency = formattedPHP(totalAmount);
 
   // total amount in text
-  document.querySelector(".cart__total").textContent = "PHP " + finalAmount;
+  document.querySelector(".cart__total").textContent =
+    "Total: PHP " + formattedCurrency;
   document.querySelector(".cart__notif").textContent = totalQuantities;
 
   if (quantities.length !== 0) {
@@ -159,11 +203,11 @@ function showTotals() {
 /*
 Things to add in JS Add to Cart feature.
 
-  1. Add a notification that the item is already added to the cart.
+  1. Add a notification that the item is already added to the cart. - DONE (Will create a layout later)
 
   2. Create a navigation cart icon. - DONE
 
-  3. Option to remove items from the cart.
+  3. Option to remove items from the cart. - DONE
 
   4. Computes the total amount of each items from the cart. - DONE
 
@@ -173,7 +217,11 @@ Things to add in JS Add to Cart feature.
 
   7. Add text change to the cart, whenever user increases or decreases the value.
 
-  8. Masked the text when the product name is too long.
+  8. Masked the text when the product name is too long. (More than 32) - DONE
+
+
+  // CSS
+  1. Cart details on smaller screen
   
 
 */
