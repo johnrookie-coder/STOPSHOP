@@ -221,7 +221,6 @@
 // CART ITEM
 .cart {
   position: relative;
-  // border: 1px solid #000;
   height: 5rem;
   width: 5rem;
 
@@ -245,13 +244,10 @@
     position: absolute;
     top: 10rem;
     right: 11rem;
-    font-size: 1.8rem;
     background-color: #fbfbfb;
     border: 1px solid rgba(64, 64, 64, 0.25);
     border-radius: 4px;
-    padding: 4rem;
     height: auto;
-    width: 50rem;
     user-select: none;
 
     &.show {
@@ -262,31 +258,18 @@
       display: flex;
       flex-wrap: wrap;
       flex: 1;
+      width: 100%;
     }
 
     &__img {
-      flex-basis: 30%;
       pointer-events: none;
       user-select: none;
-
-      img {
-        border-radius: 50%;
-        object-fit: cover;
-        height: 10rem;
-        width: 10rem;
-      }
     }
 
     &__contents {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
-      .col-1 {
-        p {
-          font-size: 1.6rem;
-        }
-      }
     }
 
     &__input {
@@ -349,10 +332,55 @@
     & {
       width: 5.5rem;
 
+      &__total {
+        font-size: 2rem;
+      }
+
       &__details {
-        position: absolute;
-        top: 0;
+        top: 10rem;
         right: 0;
+        padding: 3rem 1.5rem;
+        width: 100%;
+
+        &__prod {
+          justify-content: center;
+          align-items: center;
+        }
+
+        &__total {
+          margin-left: 2rem;
+        }
+
+        &__price {
+          margin-top: 1.2rem;
+        }
+
+        &__contents {
+          justify-content: flex-start;
+
+          .col-1 {
+            margin-bottom: 1.6rem;
+
+            p {
+              font-size: 1.2rem;
+            }
+          }
+        }
+
+        &__input {
+          width: 8rem;
+        }
+
+        &__img {
+          flex-basis: 20%;
+          margin-right: 1.6rem;
+
+          img {
+            border-radius: 0;
+            height: auto;
+            width: 100%;
+          }
+        }
       }
 
       &__notif {
@@ -372,9 +400,51 @@
       width: 5.5rem;
 
       &__details {
-        position: absolute;
         top: 10rem;
         right: 11rem;
+        font-size: 1.8rem;
+        padding: 4rem;
+        width: 50rem;
+
+        &__prod {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          flex: 1;
+          width: 100%;
+        }
+
+        &__total {
+          font-size: 2.4rem;
+          margin-left: 0;
+        }
+
+        &__price {
+          margin-top: 0;
+        }
+
+        &__img {
+          flex-basis: 30%;
+          margin-right: 0;
+
+          img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 10rem;
+            width: 10rem;
+          }
+        }
+
+        .col-1 {
+          margin-bottom: 0;
+
+          p {
+            font-size: 1.6rem;
+          }
+        }
+
+        &__input {
+          width: 10rem;
+        }
       }
 
       &__notif {

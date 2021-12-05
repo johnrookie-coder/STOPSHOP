@@ -169,15 +169,16 @@
     }
 
     &--product {
-      // new
-      padding: 0 10rem 0 15rem;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       i {
         font-size: 4rem;
+      }
+
+      @media (min-width: 1200px) {
+        padding: 0 15rem;
       }
     }
   }

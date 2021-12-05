@@ -221,7 +221,7 @@ Things to add in JS Add to Cart feature.
 
 
   // CSS
-  1. Cart details on smaller screen
+  1. Cart details on smaller screen - DONE
   
 
 */
