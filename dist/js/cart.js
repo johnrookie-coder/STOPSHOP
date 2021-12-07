@@ -1,6 +1,3 @@
-"use strict";
-// in-use
-const cards = document.querySelectorAll(".get-started__row");
 const addToCart = document.querySelectorAll(".btn--prod");
 
 // The set currency is "PHP"
@@ -28,24 +25,50 @@ const maskedStr = function (str) {
   return receivedStr;
 };
 
-//  ***************************** Cards click event ***********************
-// Cards open new HTML page
-cards.forEach((card, i) => {
-  card.addEventListener("click", (e) => {
-    e.preventDefault();
+// show totals
+function showTotals() {
+  const total = [];
+  const quantities = [];
 
-    if (i === 0) {
-      window.open("product.html");
-    }
-    if (i === 1) {
-      window.open("delivery.html");
-    }
+  const items = document.querySelectorAll(".cart__details__price");
+  const qty = document.querySelectorAll(".cart__details__input");
 
-    if (i === 2) {
-      window.open("payment.html");
-    }
+  qty.forEach((quantity) => {
+    return quantities.push(quantity.value);
   });
-});
+
+  items.forEach((item, i) => {
+    const prodItem = +item.textContent * quantities[i];
+    total.push(prodItem);
+  });
+
+  // Totals
+  const totalAmount = total.reduce((total, item) => {
+    total += item;
+    return total;
+  }, 0);
+
+  const totalQuantities = quantities.reduce((total, item) => {
+    total += +item;
+    return total;
+  }, 0);
+
+  // Formatted total amount
+  const formattedCurrency = formattedPHP(totalAmount);
+
+  // total amount in text
+  document.querySelector(".cart__total").textContent =
+    "Total: PHP " + formattedCurrency;
+  document.querySelector(".cart__notif").textContent = totalQuantities;
+
+  if (quantities.length !== 0) {
+    const wrapper0 = document.querySelector(".cart__details__wrapper--0");
+    const wrapper1 = document.querySelector(".cart__details__wrapper--1");
+
+    wrapper0.classList.add("hidden");
+    wrapper1.classList.add("show");
+  }
+}
 
 //  ***************************** Add to Cart ***********************
 (function () {
@@ -123,6 +146,16 @@ cards.forEach((card, i) => {
         cartContainer.prepend(cartItem);
         showTotals();
 
+        //  ***************************** Input value has been changed ***********************
+
+        const prodQty = document.querySelectorAll(".cart__details__input");
+        prodQty.forEach((changes) => {
+          changes.addEventListener("input", (e) => {
+            e.preventDefault();
+            showTotals();
+          });
+        });
+
         //  ***************************** Remove functionality ***********************
 
         const removeBtns = document.querySelectorAll(".btn__remove");
@@ -143,52 +176,7 @@ cards.forEach((card, i) => {
   });
 })();
 
-// show totals
-function showTotals() {
-  const total = [];
-  const quantities = [];
-
-  const items = document.querySelectorAll(".cart__details__price");
-  const qty = document.querySelectorAll(".cart__details__input");
-
-  qty.forEach((quantity) => {
-    return quantities.push(quantity.value);
-  });
-
-  items.forEach((item, i) => {
-    const prodItem = +item.textContent * quantities[i];
-    total.push(prodItem);
-  });
-
-  // Totals
-  const totalAmount = total.reduce((total, item) => {
-    total += item;
-    return total;
-  }, 0);
-
-  const totalQuantities = quantities.reduce((total, item) => {
-    total += +item;
-    return total;
-  }, 0);
-
-  // Formatted total amount
-  const formattedCurrency = formattedPHP(totalAmount);
-
-  // total amount in text
-  document.querySelector(".cart__total").textContent =
-    "Total: PHP " + formattedCurrency;
-  document.querySelector(".cart__notif").textContent = totalQuantities;
-
-  if (quantities.length !== 0) {
-    const wrapper0 = document.querySelector(".cart__details__wrapper--0");
-    const wrapper1 = document.querySelector(".cart__details__wrapper--1");
-
-    wrapper0.classList.add("hidden");
-    wrapper1.classList.add("show");
-  }
-}
-
-// IIFE
+// IIFE on the cart icon
 (function () {
   const cart = document.querySelector(".cart");
 
@@ -203,25 +191,13 @@ function showTotals() {
 /*
 Things to add in JS Add to Cart feature.
 
-  1. Add a notification that the item is already added to the cart. - DONE (Will create a layout later)
+CART.js
+  1. Add click event to checkout button.
+  2. Notify customer that they checked the product out and removes all the items from the cart.
 
-  2. Create a navigation cart icon. - DONE
-
-  3. Option to remove items from the cart. - DONE
-
-  4. Computes the total amount of each items from the cart. - DONE
-
-  5. List of Products on cart shows when toggle -DONE
-
-  6. Total and Checkout button will be added once there is an item to the cart. - DONE
-
-  7. Add text change to the cart, whenever user increases or decreases the value.
-
-  8. Masked the text when the product name is too long. (More than 32) - DONE
-
-
-  // CSS
-  1. Cart details on smaller screen - DONE
-  
+APP.js
+  1. Add click event to parent element (navItem) - DONE
+  2. Add a mobile navigation from smaller devices (phone) - tablet
+  3. Learn more button once it was clicked, redirect it to "GUIDE FOR FIRST-TIME SHOPPERS" - DONE
 
 */
