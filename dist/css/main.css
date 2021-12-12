@@ -351,6 +351,84 @@ form input:focus {
   margin-top: 1.6rem;
   padding: 1.5rem;
   height: 9rem;
+  /** new --testing**/
+}
+
+.navbar .bg {
+  display: none;
+}
+
+.navbar .btn--menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  min-height: 5rem;
+  width: 6rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar .btn--menu.active .bg {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background-color: orange;
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar .btn--menu__burger {
+  position: relative;
+  background-color: var(--body-copy);
+  border-radius: 4px;
+  min-height: 3px;
+  width: 2.4rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar .btn--menu__burger::before, .navbar .btn--menu__burger::after {
+  content: "";
+  position: absolute;
+  background-color: var(--body-copy);
+  border-radius: 4px;
+  min-height: 3px;
+  width: 2.4rem;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar .btn--menu__burger::before {
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
+}
+
+.navbar .btn--menu__burger::after {
+  -webkit-transform: translateY(1rem);
+          transform: translateY(1rem);
+}
+
+.navbar .btn--menu.active .btn--menu__burger {
+  -webkit-transform: translateX(-4px);
+          transform: translateX(-4px);
+  background: transparent;
+}
+
+.navbar .btn--menu.active .btn--menu__burger::before {
+  -webkit-transform: rotate(45deg) translate(2px, -2px);
+          transform: rotate(45deg) translate(2px, -2px);
+}
+
+.navbar .btn--menu.active .btn--menu__burger:after {
+  -webkit-transform: rotate(-45deg) translate(2px, 2px);
+          transform: rotate(-45deg) translate(2px, 2px);
 }
 
 .navbar__logo {
@@ -446,6 +524,9 @@ form input:focus {
 
 @media (min-width: 300px) {
   .navbar {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 0;
     width: 100%;
   }
@@ -457,6 +538,7 @@ form input:focus {
     list-style: none;
   }
   .navbar--delivery, .navbar--payment, .navbar--cart {
+    margin: 3rem 0;
     padding: 0 3rem;
     width: 100%;
   }
@@ -464,17 +546,22 @@ form input:focus {
     color: var(--color-primary);
     font-size: 3.2rem;
     font-weight: 800;
+    text-decoration: none;
   }
   .navbar--product__logo {
     color: var(--color-primary);
     font-size: 2.8rem;
     font-weight: 800;
+    text-decoration: none;
   }
 }
 
 @media (min-width: 768px) {
   .navbar {
     width: 100%;
+  }
+  .navbar .btn--menu {
+    display: none;
   }
   .navbar__logo {
     font-size: 3.2rem;
