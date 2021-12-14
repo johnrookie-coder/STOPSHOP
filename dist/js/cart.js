@@ -1,4 +1,10 @@
+"use strict";
+
 const addToCart = document.querySelectorAll(".btn--prod");
+const cart = document.querySelector(".cart");
+const cartInfo = document.querySelector(".cart__details");
+const wrapper0 = document.querySelector(".cart__details__wrapper--0");
+const wrapper1 = document.querySelector(".cart__details__wrapper--1");
 
 // The set currency is "PHP"
 const formattedPHP = function (num) {
@@ -25,7 +31,30 @@ const maskedStr = function (str) {
   return receivedStr;
 };
 
-// show totals
+const purchaseCheckout = function () {
+  alert("Order has been processed");
+
+  // Continously remove child nodes in the cart info
+  while (cartInfo.hasChildNodes()) {
+    cartInfo.removeChild(cartInfo.firstChild);
+  }
+
+  // Displays when no items added to the cart
+  if (!cartInfo.hasChildNodes()) {
+    const layout = `
+          <p><strong>No items on the cart</strong></p>
+        `;
+
+    wrapper0.innerHTML = layout;
+    wrapper0.style.display = "block";
+    wrapper1.style.display = "none";
+    cartInfo.classList.remove("show");
+    cartInfo.append(wrapper0);
+    location.reload();
+  }
+};
+
+// Show totals
 function showTotals() {
   const total = [];
   const quantities = [];
@@ -48,6 +77,7 @@ function showTotals() {
     return total;
   }, 0);
 
+  // Quantity in cart counter
   const totalQuantities = quantities.reduce((total, item) => {
     total += +item;
     return total;
@@ -69,6 +99,31 @@ function showTotals() {
     wrapper1.classList.add("show");
   }
 }
+
+//  ***************************** General layout ***********************
+(function () {
+  // Initial layout, no items on the cart
+  const layout = `
+            <p class="mb-sm mt-md">
+              <strong>No items on the cart</strong>
+            </p>
+      `;
+  wrapper0.innerHTML = layout;
+
+  cart.addEventListener("click", (e) => {
+    // Shows products / items added to the cart once clicked
+    cartInfo.classList.toggle("show");
+
+    // Add click event to the checkout button
+    document
+      .querySelector(".btn--checkout")
+      .addEventListener("click", purchaseCheckout);
+
+    // Updates the price
+    showTotals();
+    e.preventDefault();
+  });
+})();
 
 //  ***************************** Add to Cart ***********************
 (function () {
@@ -140,10 +195,29 @@ function showTotals() {
           </div>
         `;
 
+        // Close the "cart" whenever user adding items
+        if (cartContainer.classList.contains("show")) {
+          cartContainer.classList.remove("show");
+        }
+
         // Let the user know that the items are already added to the cart
         window.alert("Items added to the cart");
 
         cartContainer.prepend(cartItem);
+
+        // add load total layout
+        const layout = `
+                <div class="layout">
+                  <p class="mb-sm mt-md h4">
+                    <strong class="cart__total">Total: Php 0.00</strong>
+                  </p>
+                  <button class="btn btn--md btn--primary btn--checkout">
+                    Checkout
+                  </button>
+                </div>
+            `;
+
+        wrapper1.innerHTML = layout;
         showTotals();
 
         //  ***************************** Input value has been changed ***********************
@@ -157,7 +231,6 @@ function showTotals() {
         });
 
         //  ***************************** Remove functionality ***********************
-
         const removeBtns = document.querySelectorAll(".btn__remove");
         for (let i = 0; i < removeBtns.length; i++) {
           const btn = removeBtns[i];
@@ -175,29 +248,3 @@ function showTotals() {
     });
   });
 })();
-
-// IIFE on the cart icon
-(function () {
-  const cart = document.querySelector(".cart");
-
-  const cartInfo = document.querySelector(".cart__details");
-
-  cart.addEventListener("click", (e) => {
-    e.preventDefault();
-    cartInfo.classList.toggle("show");
-  });
-})();
-
-/*
-Things to add in JS Add to Cart feature.
-
-CART.js
-  1. Add click event to checkout button.
-  2. Notify customer that they checked the product out and removes all the items from the cart.
-
-APP.js
-  1. Add click event to parent element (navItem) - DONE
-  2. Add a mobile navigation from smaller devices (phone) - tablet
-  3. Learn more button once it was clicked, redirect it to "GUIDE FOR FIRST-TIME SHOPPERS" - DONE
-
-*/
