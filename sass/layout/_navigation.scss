@@ -1,4 +1,108 @@
 // HEADER--NAVIGATION
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  // Button is 1rem wider than the bg
+  &__button {
+    background-image: radial-gradient(
+      #495894,
+      #445289,
+      #3e4b7f,
+      #394574,
+      #343f6a
+    );
+    box-shadow: 0 2rem 4rem rgba(var(--body-copy), 0.3);
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 200;
+  }
+
+  // Circle -- nav
+  &__background {
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+
+    background-color: orange;
+    border-radius: 50%;
+    height: 6rem;
+    width: 6rem;
+    z-index: 100;
+    transition: transform 0.8s cubic-bezier(0.96, 0.01, 0.14, 1.01);
+  }
+
+  // Stays at the same place even though we keep scrolling since we do specify fixed height and width
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 150;
+
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  // Makes the link center both horizontally and vertically
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__items {
+    margin: 2.4rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      color: var(--body-copy);
+      padding: 1rem 2rem;
+      font-size: 3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      color: #fbfbfb;
+      background-image: linear-gradient(
+        to left bottom,
+        #495894,
+        #445289,
+        #3e4b7f,
+        #394574,
+        #343f6a
+      );
+    }
+  }
+
+  // Checkbox hack
+  //  ~ = general sibling selector
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -6,74 +110,6 @@
   margin-top: 1.6rem;
   padding: 1.5rem;
   height: 9rem;
-  // position: relative;
-
-  /** new --testing**/
-  .bg {
-    display: none;
-  }
-
-  // Hamburger menu
-  .btn--menu {
-    // position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    cursor: pointer;
-    min-height: 5rem;
-    width: 6rem;
-    transition: all 0.5s ease-in-out;
-
-    //** new --testing**/
-    &.active .bg {
-      display: block;
-      position: absolute;
-      inset: 0;
-      background-color: orange;
-      height: 100vh;
-      width: 100vw;
-    }
-
-    &__burger {
-      position: relative;
-      background-color: var(--body-copy);
-      border-radius: 4px;
-      min-height: 3px;
-      width: 2.4rem;
-      transition: all 0.5s ease-in-out;
-
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        background-color: var(--body-copy);
-        border-radius: 4px;
-        min-height: 3px;
-        width: 2.4rem;
-        transition: all 0.5s ease-in-out;
-      }
-
-      &::before {
-        transform: translateY(-1rem);
-      }
-
-      &::after {
-        transform: translateY(1rem);
-      }
-    }
-
-    &.active .btn--menu__burger {
-      transform: translateX(-4px);
-      background: transparent;
-
-      &::before {
-        transform: rotate(45deg) translate(2px, -2px);
-      }
-      &:after {
-        transform: rotate(-45deg) translate(2px, 2px);
-      }
-    }
-  }
 
   &__logo {
     display: flex;
