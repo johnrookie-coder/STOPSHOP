@@ -2,9 +2,10 @@
 
 const cards = document.querySelectorAll(".get-started__row");
 const navItem = document.querySelectorAll(".navbar__item");
+const navigationItems = document.querySelectorAll(".navigation__items");
 const learnMore = document.querySelector(".btn--learnMore");
 
-// Nav Item click event
+// Nav Item (Desktop)
 const navItemEvent = function () {
   navItem.forEach((item) => {
     item.addEventListener("click", () => {
@@ -14,6 +15,25 @@ const navItemEvent = function () {
       if (srcLoc != -1) {
         const path = link.slice(srcLoc);
         location.href = path;
+      } else {
+        location.href = link;
+      }
+    });
+  });
+};
+
+// Navigation Hamburger menu
+const navigationItemsEvent = function () {
+  navigationItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const link = item.firstElementChild.href;
+      const srcLoc = link.indexOf("#");
+
+      console.log(srcLoc);
+      console.log(link);
+      if (srcLoc != -1) {
+        const path = link.slice(srcLoc);
+        location.reload(path);
       } else {
         location.href = link;
       }
@@ -54,14 +74,8 @@ const cardsEvent = function () {
 
 // IIFE
 (function () {
+  navigationItemsEvent();
   navItemEvent();
   cardsEvent();
   learnBtn();
 })();
-
-/*  
-  Things to modify:
-    index.html - mobile navigation - some links are not working the way it should be.
-    cart.js - 1cart, remove items, Error: though NO items on the cart, it still can checkout the product.
-    styles.css - alignment of card (minor)
-*/

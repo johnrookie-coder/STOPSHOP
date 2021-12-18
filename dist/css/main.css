@@ -147,6 +147,10 @@ span {
   margin-top: 2rem;
 }
 
+.mt-lg {
+  margin-top: 4.2rem;
+}
+
 .mr-sm {
   margin-right: 0.8rem;
 }
@@ -430,7 +434,7 @@ form input:focus {
 
 .navigation__icon {
   position: relative;
-  margin-top: 2.75rem;
+  margin-top: 2.65rem;
 }
 
 .navigation__icon, .navigation__icon::before, .navigation__icon::after {
@@ -1248,9 +1252,9 @@ header .hero__text h4 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1283,7 +1287,7 @@ header .hero__text h4 {
 }
 
 .get-started-section .get-started__img--md {
-  height: 13rem;
+  height: 16rem;
   width: 25rem;
 }
 
@@ -1314,38 +1318,6 @@ header .hero__text h4 {
 }
 
 @media (min-width: 768px) {
-  .get-started-section .get-started {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin: 0 auto;
-  }
-  .get-started-section .get-started__row {
-    padding: 10rem 2rem;
-    width: 75%;
-  }
-  .get-started-section .get-started__img {
-    height: 18.5rem;
-    width: 27.5rem;
-  }
-  .get-started-section .get-started__img--sm {
-    height: 18rem;
-    width: 18.5rem;
-  }
-  .get-started-section .get-started__img--md {
-    height: 18.5rem;
-    width: 27.5rem;
-  }
-}
-
-@media (min-width: 768px) {
   .get-started-section .get-started__row {
     padding: 8rem 2rem;
     width: 65%;
@@ -1354,7 +1326,7 @@ header .hero__text h4 {
     font-size: 2.8rem;
   }
   .get-started-section .get-started__row p {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .get-started-section .get-started__img {
     height: 18.5rem;

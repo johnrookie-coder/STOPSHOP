@@ -98,6 +98,17 @@ function showTotals() {
     wrapper0.classList.add("hidden");
     wrapper1.classList.add("show");
   }
+
+  if (quantities.length === 0) {
+    const wrapper0 = document.querySelector(".cart__details__wrapper--0");
+    const wrapper1 = document.querySelector(".cart__details__wrapper--1");
+
+    wrapper0.classList.add("show");
+    wrapper0.classList.remove("hidden");
+
+    wrapper1.classList.remove("show");
+    wrapper1.classList.add("hidden");
+  }
 }
 
 //  ***************************** General layout ***********************
@@ -164,8 +175,6 @@ function showTotals() {
         item.price = finalPrice;
         item.quantity = quantity;
         item.img = `img${partialPath}`;
-
-        console.log(item);
 
         // layout foreach item
         const cartContainer = document.querySelector(".cart__details");
