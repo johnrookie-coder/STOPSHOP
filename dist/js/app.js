@@ -10,9 +10,13 @@ const navItemEvent = function () {
     item.addEventListener("click", () => {
       const link = item.firstElementChild.href;
       const srcLoc = link.indexOf("#");
-      const path = link.slice(srcLoc);
 
-      location.href = path;
+      if (srcLoc != -1) {
+        const path = link.slice(srcLoc);
+        location.href = path;
+      } else {
+        location.href = link;
+      }
     });
   });
 };
@@ -48,21 +52,16 @@ const cardsEvent = function () {
   });
 };
 
-// Hamburger menu
-const mobileNav = function () {
-  const menuBtn = document.querySelector(".btn--menu");
-  let menuOpen = false;
-  menuBtn.addEventListener("click", () => {
-    if (!menuOpen) {
-      menuBtn.classList.toggle("active");
-    }
-  });
-};
-
 // IIFE
 (function () {
-  mobileNav();
   navItemEvent();
   cardsEvent();
   learnBtn();
 })();
+
+/*  
+  Things to modify:
+    index.html - mobile navigation - some links are not working the way it should be.
+    cart.js - 1cart, remove items, Error: though NO items on the cart, it still can checkout the product.
+    styles.css - alignment of card (minor)
+*/

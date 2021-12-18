@@ -343,26 +343,30 @@ form input:focus {
 }
 
 .navigation__button {
-  background-image: radial-gradient(#495894, #445289, #3e4b7f, #394574, #343f6a);
+  display: block;
+  position: fixed;
+  top: 3.5rem;
+  right: 3.5rem;
+  background-color: #a4abc9;
   -webkit-box-shadow: 0 2rem 4rem rgba(var(--body-copy), 0.3);
           box-shadow: 0 2rem 4rem rgba(var(--body-copy), 0.3);
-  height: 7rem;
-  width: 7rem;
-  position: fixed;
-  top: 6rem;
-  right: 6rem;
   border-radius: 50%;
+  cursor: pointer;
+  height: 5.5rem;
+  width: 5.5rem;
+  text-align: center;
   z-index: 200;
 }
 
 .navigation__background {
+  display: block;
   position: fixed;
-  top: 6.5rem;
-  right: 6.5rem;
-  background-color: orange;
+  top: 3.75rem;
+  right: 3.75rem;
+  background-color: #ffc069;
   border-radius: 50%;
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
   z-index: 100;
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.96, 0.01, 0.14, 1.01);
   transition: -webkit-transform 0.8s cubic-bezier(0.96, 0.01, 0.14, 1.01);
@@ -422,6 +426,70 @@ form input:focus {
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
+}
+
+.navigation__icon {
+  position: relative;
+  margin-top: 2.75rem;
+}
+
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  display: inline-block;
+  background-color: var(--body-copy);
+  height: 2px;
+  width: 3rem;
+}
+
+.navigation__icon::before, .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.navigation__icon::before {
+  top: -0.8rem;
+}
+
+.navigation__icon::after {
+  top: 0.8rem;
+}
+
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem;
+}
+
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+
+@media (min-width: 992px) {
+  .navigation__button {
+    display: none;
+  }
+  .navigation__background {
+    display: none;
+  }
+  .navigation__nav {
+    display: none;
+  }
 }
 
 .navbar {
@@ -539,7 +607,7 @@ form input:focus {
     width: 100%;
   }
   .navbar__logo {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
   .navbar__item {
     display: none;
