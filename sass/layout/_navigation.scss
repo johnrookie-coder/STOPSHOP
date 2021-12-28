@@ -12,7 +12,7 @@
     top: 3.5rem;
     right: 3.5rem;
 
-    background-color: #a4abc9;
+    background-color: #d9d9d9;
     box-shadow: 0 2rem 4rem rgba(var(--body-copy), 0.3);
     border-radius: 50%;
     cursor: pointer;
@@ -22,7 +22,7 @@
     z-index: 200;
   }
 
-  // Circle --nav (yellow bg once the hamburger menu is opened)
+  // Circle --nav (#ffc069 bg once the hamburger menu is opened)
   &__background {
     display: block;
     position: fixed;
@@ -111,7 +111,7 @@
     &::before,
     &::after {
       display: inline-block;
-      background-color: var(--body-copy);
+      background-color: #303030;
       height: 2px;
       width: 3rem;
     }
@@ -256,7 +256,7 @@
     width: 100%;
 
     &__logo {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
     }
 
     &__item {

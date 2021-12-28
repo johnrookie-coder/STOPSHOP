@@ -351,7 +351,7 @@ form input:focus {
   position: fixed;
   top: 3.5rem;
   right: 3.5rem;
-  background-color: #a4abc9;
+  background-color: #d9d9d9;
   -webkit-box-shadow: 0 2rem 4rem rgba(var(--body-copy), 0.3);
           box-shadow: 0 2rem 4rem rgba(var(--body-copy), 0.3);
   border-radius: 50%;
@@ -439,7 +439,7 @@ form input:focus {
 
 .navigation__icon, .navigation__icon::before, .navigation__icon::after {
   display: inline-block;
-  background-color: var(--body-copy);
+  background-color: #303030;
   height: 2px;
   width: 3rem;
 }
@@ -611,7 +611,7 @@ form input:focus {
     width: 100%;
   }
   .navbar__logo {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
   .navbar__item {
     display: none;
@@ -1064,6 +1064,10 @@ header .hero__text h4 {
   }
   .about-us-section h2 {
     font-size: 3.2rem;
+  }
+  .about-us-section p {
+    font-size: 1.6rem;
+    line-height: 2;
   }
 }
 
@@ -1823,7 +1827,7 @@ header .hero__text h4 {
   color: #f2f2f2;
   font-size: 1.4rem;
   text-align: center;
-  padding: 0.5rem 0.3rem;
+  padding: 0.6rem 0.3rem 0.5rem 0.3rem;
   height: 3rem;
   width: 3rem;
 }
@@ -1986,7 +1990,7 @@ header .hero__text h4 {
     width: 100%;
   }
   .cart__notif {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .cart i {
     font-size: 2.4rem;
@@ -2047,6 +2051,7 @@ header .hero__text h4 {
   }
   .cart__notif {
     font-size: 1.6rem;
+    padding: 0.5rem 0.3rem;
   }
   .cart i {
     font-size: 3rem;
