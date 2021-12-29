@@ -2174,7 +2174,17 @@ header .hero__text h4 {
   .delivery__main h1,
   .payment__main h1,
   .product__main h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  .delivery__main h3,
+  .payment__main h3,
+  .product__main h3 {
+    font-size: 2.4rem;
+  }
+  .delivery__main p,
+  .payment__main p,
+  .product__main p {
+    font-size: 1.6rem;
   }
 }
 
@@ -2191,6 +2201,21 @@ header .hero__text h4 {
   .payment__main h1,
   .product__main h1 {
     font-size: 3.6rem;
+  }
+  .delivery__main p,
+  .payment__main p,
+  .product__main p {
+    font-size: 1.8rem;
+  }
+  .delivery__main p.product__price,
+  .payment__main p.product__price,
+  .product__main p.product__price {
+    font-size: 2.4rem;
+  }
+  .delivery__main h3,
+  .payment__main h3,
+  .product__main h3 {
+    font-size: 3.2rem;
   }
 }
 

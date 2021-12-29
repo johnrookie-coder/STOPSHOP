@@ -125,6 +125,11 @@ function showTotals() {
     // Shows products / items added to the cart once clicked
     cartInfo.classList.toggle("show");
 
+    const notif = +document.querySelector(".cart__notif").textContent;
+
+    // Guard Clauses
+    if (notif === 0) return;
+
     // Add click event to the checkout button
     document
       .querySelector(".btn--checkout")
@@ -142,7 +147,14 @@ function showTotals() {
     cart.addEventListener("click", (e) => {
       e.preventDefault();
 
+      // layout foreach item
+      const cartContainer = document.querySelector(".cart__details");
+      const cartItem = document.createElement("div");
+      const prodInputs = document.querySelectorAll(".product__input");
+
       if (e.target.closest(".btn--prod")) {
+        const item = {};
+
         // Get the image location based where the click happens
         let imgPath =
           e.target.parentElement.parentElement.parentElement
@@ -168,17 +180,11 @@ function showTotals() {
         // Get the number of quantity
         let quantity = +e.target.parentElement.children[0].children[1].value;
 
-        const item = {};
-
         // Adds properties to the empty item object
         item.name = productName;
         item.price = finalPrice;
         item.quantity = quantity;
         item.img = `img${partialPath}`;
-
-        // layout foreach item
-        const cartContainer = document.querySelector(".cart__details");
-        const cartItem = document.createElement("div");
 
         cartItem.classList.add("cart__details__prod", "mb-xl");
 
@@ -212,47 +218,51 @@ function showTotals() {
         // Let the user know that the items are already added to the cart
         window.alert("Items added to the cart");
 
-        cartContainer.prepend(cartItem);
-
-        // add load total layout
-        const layout = `
-                <div class="layout">
-                  <p class="mb-sm mt-md h4">
-                    <strong class="cart__total">Total: Php 0.00</strong>
-                  </p>
-                  <button class="btn btn--md btn--primary btn--checkout">
-                    Checkout
-                  </button>
-                </div>
-            `;
-
-        wrapper1.innerHTML = layout;
-        showTotals();
-
-        //  ***************************** Input value has been changed ***********************
-
-        const prodQty = document.querySelectorAll(".cart__details__input");
-        prodQty.forEach((changes) => {
-          changes.addEventListener("input", (e) => {
-            e.preventDefault();
-            showTotals();
-          });
+        // Set the value back to "one" whenever user add new items on the cart
+        prodInputs.forEach((inputs) => {
+          inputs.value = 1;
         });
 
-        //  ***************************** Remove functionality ***********************
-        const removeBtns = document.querySelectorAll(".btn__remove");
-        for (let i = 0; i < removeBtns.length; i++) {
-          const btn = removeBtns[i];
+        cartContainer.prepend(cartItem);
+      }
 
-          btn.addEventListener("click", (e) => {
-            // target where the click event happens and removes it.
-            const btnClicked = e.target;
-            btnClicked.parentElement.parentElement.parentElement.remove();
+      // load total layout
+      const layout = `
+              <div class="layout">
+                <p class="mb-sm mt-md h4">
+                  <strong class="cart__total">Total: Php 0.00</strong>
+                </p>
+                <button class="btn btn--md btn--primary btn--checkout">
+                  Checkout
+                </button>
+              </div>
+          `;
 
-            // Updates the total price
-            showTotals();
-          });
-        }
+      wrapper1.innerHTML = layout;
+      showTotals();
+
+      //  ***************************** Input value has been changed ***********************
+      const prodQty = document.querySelectorAll(".cart__details__input");
+      prodQty.forEach((changes) => {
+        changes.addEventListener("input", (e) => {
+          e.preventDefault();
+          showTotals();
+        });
+      });
+
+      //  ***************************** Remove functionality ***********************
+      const removeBtns = document.querySelectorAll(".btn__remove");
+      for (let i = 0; i < removeBtns.length; i++) {
+        const btn = removeBtns[i];
+
+        btn.addEventListener("click", (e) => {
+          // target where the click event happens and removes it.
+          const btnClicked = e.target;
+          btnClicked.parentElement.parentElement.parentElement.remove();
+
+          // Updates the total price
+          showTotals();
+        });
       }
     });
   });
