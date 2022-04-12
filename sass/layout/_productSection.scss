@@ -8,6 +8,10 @@
   justify-content: space-between;
   margin-bottom: 8rem;
 
+  .lazy__img {
+    filter: blur(20px);
+  }
+
   // IMAGE | 1
   &__img {
     flex-basis: 50%;

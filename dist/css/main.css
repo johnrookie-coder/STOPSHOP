@@ -1594,6 +1594,11 @@ header .hero__text h4 {
   margin-bottom: 8rem;
 }
 
+.product .lazy__img {
+  -webkit-filter: blur(20px);
+          filter: blur(20px);
+}
+
 .product__img {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;

@@ -62,7 +62,7 @@ function showTotals() {
   const items = document.querySelectorAll(".cart__details__price");
   const qty = document.querySelectorAll(".cart__details__input");
 
-  qty.forEach((quantity) => {
+  qty.forEach((quantity, idx) => {
     return quantities.push(quantity.value);
   });
 
@@ -267,3 +267,29 @@ function showTotals() {
     });
   });
 })();
+
+// Lazy Loading
+const allImages = document.querySelectorAll("img[data-src]");
+
+const lazyLoading = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener("load", function () {
+    entry.target.classList.remove("lazy__img");
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const options = {
+  root: null,
+  threshold: 0,
+  rootMargin: "-200px",
+};
+
+const imageObserver = new IntersectionObserver(lazyLoading, options);
+allImages.forEach((img) => imageObserver.observe(img));
